@@ -1,5 +1,7 @@
 "use client"
 
+import Hero from "@/components/shared/hero";
+import Navbar from "@/components/shared/navbar";
 import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -17,7 +19,10 @@ const Home = () => {
      } , [])
 
       return loading ? <Loader /> : (
-            <div>Home</div>
+            <>
+                  <Navbar />
+                  <Hero />
+            </>
       );
 };
 

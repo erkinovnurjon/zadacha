@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import GlobalContext from '@/context'
-import { ToastContainer } from 'react-toastify'
 import { Toaster } from '@/components/ui/toaster'
+import { ThemeProvider } from '@/components/provider/theme-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +21,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <GlobalContext>
-        {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
           <Toaster />
 
         </GlobalContext>
